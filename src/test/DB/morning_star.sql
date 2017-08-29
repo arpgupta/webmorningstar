@@ -294,3 +294,15 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-03-31 22:46:48
+
+
+
+
+
+CREATE TABLE `dashboard` (
+  `studentname` varchar(100) DEFAULT NULL,
+  `studentdescription` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+

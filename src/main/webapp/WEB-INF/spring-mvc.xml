@@ -19,11 +19,13 @@
     http://www.springframework.org/schema/rabbit
  	http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd  
  	http://www.springframework.org/schema/data/mongo
-    http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+    http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+    http://www.springframework.org/schema/task
+   	http://www.springframework.org/schema/task/spring-task.xsd">
 
 
 
-	<context:component-scan base-package="net.codejava.spring,com.ms.controller" />
+	<context:component-scan base-package="com.ms,com.ms.interceptor,net.codejava.spring,com.ms.controller,com.ms.service,com.ms.dao,com.ms.util,com.ms.domain,com.ms.dto" />
                      
 	<context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
 
@@ -45,11 +47,11 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- <bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" /> -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
-	
- 	<!-- <mvc:interceptors>
+	<!-- Configuring interceptors based on URI -->
+ 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/dashboard.do"/>
 			<mvc:mapping path="/registration.do"/>
@@ -62,13 +64,13 @@
 			<mvc:mapping path="/search.do"/>
 			<bean class="com.ms.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor> 
-	</mvc:interceptors>  -->
+	</mvc:interceptors> 
 
-	<!-- <bean
-		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> -->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
 	<!--- JPA transaction manager -->
-	<!-- <bean id="entityManagerFactory"
+	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="morningstar" />
 		<property name="dataSource" ref="dataSource" />
@@ -80,14 +82,14 @@
 		</property>
 		<property name="jpaProperties">
 			<props>
-				 <prop key="hibernate.hbm2ddl.auto">update</prop>
-				 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<!--  <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<!--  <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
 				<prop key="hibernate.dialect">com.ms.dao.CustomeDialect</prop> 
 			</props>
 		</property>
-	</bean> -->
+	</bean>
 
-	<!-- <bean id="entityManagerFactoryReadOnly"
+	<bean id="entityManagerFactoryReadOnly"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="morningstar" />
 		<property name="dataSource" ref="dataSourceReadOnly" />
@@ -97,13 +99,13 @@
 				<property name="showSql" value="true" />
 			</bean>
 		</property>
-		<property name="jpaProperties">
+		<!-- <property name="jpaProperties">
 			<props>
 				<prop key="hibernate.dialect">com.pwc.dao.CustomeDialect</prop>
 			</props>
-		</property>
+		</property> -->
 
-	</bean> -->
+	</bean>
 
 
 
@@ -130,7 +132,7 @@
 		<property name="removeAbandonedTimeout" value="200" />
 	</bean>
 
-	<!-- <bean id="mainDataSourceReadOnly" class="org.apache.tomcat.jdbc.pool.DataSource"
+	<bean id="mainDataSourceReadOnly" class="org.apache.tomcat.jdbc.pool.DataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="${jdbc.urlReadOnly}" />
@@ -148,14 +150,14 @@
 		<property name="testOnBorrow" value="true" />
 		<property name="removeAbandoned" value="true" />
 		<property name="removeAbandonedTimeout" value="200" />
-	</bean> -->
+	</bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
 		<property name="targetDataSource" ref="mainDataSource"></property>
 	</bean>
 
-	<!-- <bean id="dataSourceReadOnly"
+	<bean id="dataSourceReadOnly"
 		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
 		<property name="targetDataSource" ref="mainDataSourceReadOnly"></property>
 	</bean>
@@ -164,11 +166,11 @@
 	</bean>
 	<bean id="transactionManagerReadOnly" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactoryReadOnly" />
-	</bean> -->
+	</bean>
 
-	<!-- <tx:annotation-driven transaction-manager="transactionManager" order="10" /> -->
+	<tx:annotation-driven transaction-manager="transactionManager" order="10" />
 
-	<!-- <bean id="messageSource"
+	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:message" />
 		<property name="defaultEncoding" value="UTF-8" />
@@ -206,5 +208,5 @@
 	</bean>
 	<bean id="paidFeeSummaryDao" class="com.ms.dao.PaidFeeSummaryDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean> -->
+	</bean>
 </beans>

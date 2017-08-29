@@ -45,7 +45,8 @@ public class MainController {
 	    public ModelAndView contact() {  
 	        
 	        return new ModelAndView("contact");  
-	    }  
+	    }
+	
 	 @RequestMapping("/blog-with-sidebar")  
 	    public ModelAndView blog() {  
 	        
@@ -104,5 +105,11 @@ public class MainController {
 	        
 	        return new ModelAndView("tc");  
 	    } 
+	 
+	/* @RequestMapping("/login")  
+	    public ModelAndView Adminlogin() {  
+	        
+	        return new ModelAndView("login");  
+	    }*/
 	
 }
