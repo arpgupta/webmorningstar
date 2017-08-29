@@ -301,8 +301,7 @@ UNLOCK TABLES;
 
 CREATE TABLE `dashboard` (
   `studentname` varchar(20) DEFAULT NULL,
-  `studentdescription` varchar(500) DEFAULT NULL
+  `studentdescription` varchar(500) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-

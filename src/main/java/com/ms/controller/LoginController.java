@@ -24,14 +24,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ms.bean.Dashboardbean;
 import com.ms.bean.Login;
+import com.ms.dao.ContentDataDao;
 import com.ms.dto.UserDTO;
+import com.ms.entity.PaidFeeSummary;
 import com.ms.entity.User;
 import com.ms.service.LoginService;
 import com.ms.util.MSConstant;
 import com.ms.util.MSException;
 import com.ms.util.SessionUtil;
 
-
+import com.ms.entity.ContantData;
 
 
 
@@ -41,6 +43,9 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
+	
+	@Autowired
+	private ContentDataDao contentDataDao;
 
 	@RequestMapping(value = "/login", method = { RequestMethod.POST, RequestMethod.GET })
 	    public ModelAndView Adminlogin(@ModelAttribute("login") @Validated Login login, BindingResult bindingResult, Model model,HttpServletRequest request) {
@@ -63,6 +68,8 @@ public class LoginController {
 					e.printStackTrace();
 					model.addAttribute(MSConstant.MESSAGE, "Error Occured");
 				}
+				
+				
 				return new ModelAndView("login", "login", login);
 			} 
 	        
@@ -81,9 +88,18 @@ public class LoginController {
 			System.out.println(a);
 			System.out.println(b);
 			
+			ContantData contantData=new ContantData();
+			
+			contantData.setStudentname(a);
+			contantData.setStudentdescription(b);
+			contentDataDao.save(contantData);
+			
 			return new ModelAndView("dashboard");
 		}
 	}
+	
+		
+	
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, RedirectAttributes attributes) throws Exception {
