@@ -43,9 +43,7 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
-	
-	@Autowired
-	private ContentDataDao contentDataDao;
+
 
 	@RequestMapping(value = "/login", method = { RequestMethod.POST, RequestMethod.GET })
 	    public ModelAndView Adminlogin(@ModelAttribute("login") @Validated Login login, BindingResult bindingResult, Model model,HttpServletRequest request) {
@@ -92,6 +90,8 @@ public class LoginController {
 			
 			contantData.setStudentname(a);
 			contantData.setStudentdescription(b);
+			
+			ContentDataDao contentDataDao=new ContentDataDao();
 			contentDataDao.save(contantData);
 			
 			return new ModelAndView("dashboard");
