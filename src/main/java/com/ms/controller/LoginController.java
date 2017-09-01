@@ -88,7 +88,10 @@ public class LoginController {
 			contantData.setStudentname(a);
 			contantData.setStudentdescription(b);
 			
-			loginService.saveData(contantData);
+			//loginService.saveData(contantData);
+			
+			ContantData obj=loginService.getStudentByStudentName(a);
+			
 			
 			return new ModelAndView("dashboard");
 		}

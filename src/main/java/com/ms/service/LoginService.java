@@ -11,6 +11,10 @@
  */
 package com.ms.service;
 
+import java.util.List;
+
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,10 +54,23 @@ public class LoginService {
 
 	}
 	
+	@Transactional(rollbackFor = Exception.class)
 	public void saveData(ContantData contantData)
 	{
 		//ContentDataDao contentDataDao=new ContentDataDao();
 		contentDataDao.save(contantData);
 	}
+	
+public ContantData getStudentByStudentName(String name)
+{
+	ContantData obj=new ContantData();
+	try {
+		obj = contentDataDao.findByStudentName(name);
+	} catch (MSException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return obj;
+}
 
 }

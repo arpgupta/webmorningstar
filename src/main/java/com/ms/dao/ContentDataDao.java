@@ -20,19 +20,22 @@ public class ContentDataDao  extends GenericDao<Integer, ContantData>{
 		} else {
 			merge(contantdata);
 		}
+		
+		
 
 	}
 	
-	/*@SuppressWarnings("unchecked")
-	public ContantData findByStudentId(Integer studentId) throws MSException {
-		Query jpaQuery = getEntityManager().createQuery("Select fs from ContantData cd where cd.Id = :Id");
-		jpaQuery.setParameter("id", Id);
-		List<PaidFeeSummary> list = jpaQuery.getResultList();
+
+	@SuppressWarnings("unchecked")
+	public ContantData findByStudentName(String studentname) throws MSException {
+		Query jpaQuery = getEntityManager().createQuery("Select u from ContantData u where u.studentname = :studentname");
+		jpaQuery.setParameter("studentname", studentname);
+		List<ContantData> list = jpaQuery.getResultList();
 		if (list.size() > 0) {
 			return list.get(0);
 		}
 		return null;
-	}*/
+	}
 	
 
 }
