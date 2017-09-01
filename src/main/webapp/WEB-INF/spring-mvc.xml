@@ -208,9 +208,9 @@
 	</bean>
 	<bean id="paidFeeSummaryDao" class="com.ms.dao.PaidFeeSummaryDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
-	<bean id="ContantDataDao" class="com.ms.dao.ContantDataDao">
+	</bean> 
+	 <bean id="contentDataDao" class="com.ms.dao.ContentDataDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
+	</bean> 
 	
 </beans>

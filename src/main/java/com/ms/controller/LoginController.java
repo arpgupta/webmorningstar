@@ -66,11 +66,8 @@ public class LoginController {
 					e.printStackTrace();
 					model.addAttribute(MSConstant.MESSAGE, "Error Occured");
 				}
-				
-				
 				return new ModelAndView("login", "login", login);
 			} 
-	        
 	   }
 
 	@RequestMapping(value = "/dashboard", method = { RequestMethod.POST, RequestMethod.GET })
@@ -91,8 +88,7 @@ public class LoginController {
 			contantData.setStudentname(a);
 			contantData.setStudentdescription(b);
 			
-			ContentDataDao contentDataDao=new ContentDataDao();
-			contentDataDao.save(contantData);
+			loginService.saveData(contantData);
 			
 			return new ModelAndView("dashboard");
 		}

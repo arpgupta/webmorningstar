@@ -17,6 +17,18 @@ import javax.persistence.TemporalType;
 @Table(name = "dashboard")
 public class ContantData  extends BaseEntity<Integer> implements Serializable{
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Integer id;
+	
+	@Column(name = "studentname")
+	private String studentname;
+
+
+	@Column(name = "studentdescription")
+	private String studentdescription;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -51,17 +63,7 @@ public class ContantData  extends BaseEntity<Integer> implements Serializable{
 
 	
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private Integer id;
 	
-	@Column(name = "studentname")
-	private String studentname;
-
-
-	@Column(name = "studentdescription")
-	private String studentdescription;
 	
 	
 	

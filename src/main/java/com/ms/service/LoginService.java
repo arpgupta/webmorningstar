@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ms.bean.Login;
+import com.ms.dao.ContentDataDao;
 import com.ms.dao.UserDao;
+import com.ms.entity.ContantData;
 import com.ms.entity.User;
 import com.ms.util.EncryptionUtil;
 import com.ms.util.MSException;
@@ -33,6 +35,10 @@ public class LoginService {
 
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private ContentDataDao contentDataDao;
+
 
 	/**
 	 * @param login
@@ -42,6 +48,12 @@ public class LoginService {
 	public User authenticate(Login login) throws MSException {
 		return userDao.findByEmailAndPassword(login.getEmail(), EncryptionUtil.md5Encrypt(login.getPassword()));
 
+	}
+	
+	public void saveData(ContantData contantData)
+	{
+		//ContentDataDao contentDataDao=new ContentDataDao();
+		contentDataDao.save(contantData);
 	}
 
 }
