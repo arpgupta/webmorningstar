@@ -14,7 +14,7 @@
 /**
  * jquery.timer.js
  *
- * Copyright (c) 2011 Jason Chavannes <jason.chavannes@gmail.com>
+ * Copyright (c) 2011, 2017 Jason Chavannes <jason.chavannes@gmail.com>
  *
  * http://jchavannes.com/jquery-timer
  *

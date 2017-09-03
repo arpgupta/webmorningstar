@@ -10,13 +10,13 @@ import com.ms.util.MSException;
 
 public class ContentDataService {
 
-	/*@Autowired
-	private ContentDataDao contentDataDao;*/
+	@Autowired
+	private ContentDataDao contentDataDao;
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void saveData(ContentData contentData)
 	{
-		ContentDataDao contentDataDao=new ContentDataDao();
+		//ContentDataDao contentDataDao=new ContentDataDao();
 		contentDataDao.save(contentData);
 	}
 	
@@ -30,5 +30,5 @@ public class ContentDataService {
 		e.printStackTrace();
 	}
 	return obj;
+}*/
 }
-*/}

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (c) 2016 PWC Corporation and others.
+* Copyright (c) 2016, 2017 PWC Corporation and others.
 * All rights reserved. This program and the accompanying materials
 * are made available under the terms of the PWC License v1.0
 *
@@ -82,7 +82,7 @@ public class LoginController {
 			
 			String a=contentDataBean.getStudentName();
 			String b=contentDataBean.getStudentDescription();
-			String c =contentDataBean.getClassName(); 
+			String c=contentDataBean.getClassName(); 
 			System.out.println(a);
 			System.out.println(b);
 			System.out.println(c);
@@ -91,7 +91,7 @@ public class LoginController {
 			
 			contentData.setStudentname(a);
 			contentData.setStudentdescription(b);
-			
+			contentData.setClassname(c);
 			ContentDataService contentDataService =new  ContentDataService();
 			
 			contentDataService.saveData(contentData);
