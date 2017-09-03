@@ -499,13 +499,9 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
           <form:form  modelAttribute="dashboard"  action="dashboard.do" method="post"  class="col s12"> 
     
       <div class="row">
-        <div class="input-field col s12 m6">
+        <div class="input-field col s12 m12">
           <form:input placeholder="Name of Student" path="StudentName" id="first_name" type="text" class="validate" />
           <label for="first_name">Name of Student</label>
-        </div>
-         <div class="input-field col s12 m6">
-          <form:input placeholder="Class Name" path="ClassName" id="first_name" type="text" class="validate" />
-          <label for="first_name">Class Name</label>
         </div>
         
         <div class="input-field col s12 m12">

@@ -22,18 +22,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ms.bean.Dashboardbean;
+import com.ms.bean.ContentDataBean;
 import com.ms.bean.Login;
-import com.ms.dao.ContentDataDao;
 import com.ms.dto.UserDTO;
 import com.ms.entity.PaidFeeSummary;
 import com.ms.entity.User;
+import com.ms.service.ContentDataService;
 import com.ms.service.LoginService;
 import com.ms.util.MSConstant;
 import com.ms.util.MSException;
 import com.ms.util.SessionUtil;
-
-import com.ms.entity.ContantData;
+import com.ms.entity.ContentData;
 
 
 
@@ -44,6 +43,9 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
+
+	
+	
 
 	@RequestMapping(value = "/login", method = { RequestMethod.POST, RequestMethod.GET })
 	    public ModelAndView Adminlogin(@ModelAttribute("login") @Validated Login login, BindingResult bindingResult, Model model,HttpServletRequest request) {
@@ -71,26 +73,30 @@ public class LoginController {
 	   }
 
 	@RequestMapping(value = "/dashboard", method = { RequestMethod.POST, RequestMethod.GET })
-	public ModelAndView dashboardPage(@ModelAttribute("dashboard") @Validated Dashboardbean dashboardbean, BindingResult bindingResult, Model model,HttpServletRequest request) {
+	public ModelAndView dashboardPage(@ModelAttribute("dashboard") @Validated ContentDataBean contentDataBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			SessionUtil.setPage(MSConstant.DASHBOARD);	
 			return new ModelAndView("dashboard");
 		}else{
 			SessionUtil.setPage(MSConstant.DASHBOARD);	
 			
-			String a=dashboardbean.getStudentName();
-			String b=dashboardbean.getStudentDescription();
+			String a=contentDataBean.getStudentName();
+			String b=contentDataBean.getStudentDescription();
+			String c =contentDataBean.getClassName(); 
 			System.out.println(a);
 			System.out.println(b);
+			System.out.println(c);
 			
-			ContantData contantData=new ContantData();
+			ContentData contentData=new ContentData();
 			
-			contantData.setStudentname(a);
-			contantData.setStudentdescription(b);
+			contentData.setStudentname(a);
+			contentData.setStudentdescription(b);
 			
-			//loginService.saveData(contantData);
+			ContentDataService contentDataService =new  ContentDataService();
 			
-			ContantData obj=loginService.getStudentByStudentName(a);
+			contentDataService.saveData(contentData);
+			
+			/*ContentData obj=contentDataService.getStudentByStudentName(a);*/
 			
 			
 			return new ModelAndView("dashboard");

@@ -299,8 +299,9 @@ UNLOCK TABLES;
 
 
 
-CREATE TABLE `dashboard` (
-  `studentname` varchar(20) DEFAULT NULL,
+CREATE TABLE `contentdata` (
+  `studentname` varchar(100) DEFAULT NULL,
+  `classname` varchar(100) DEFAULT NULL,
   `studentdescription` varchar(500) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)

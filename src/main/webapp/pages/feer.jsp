@@ -4,13 +4,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard</title>
-  <!-- CORE CSS-->
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Abacusreg Form</title>
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
   <link rel="shortcut icon" type="image/png" href="images/login.png"/>
@@ -478,61 +478,125 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
     color: rgb(0, 0, 0) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.26);
 }
+.schoolhide{
+  visibility: hidden;
+ }
+ .schoolshow{
+  visibility: visible;
+ }
+ td, th {
+    padding: 1px 16px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+    border: 1px solid #000;
+}
 .date{ display: inline;}
     margin-top: 34px;}
  
  
  </style>
-<body class="dashboard-body">
-
-  <%@ include file="../include/header-log.jsp"%>
-  <div class="container">
-  <div class="nav-wrapper">
-      
-    </div>
-  
+   <body class="dashboard-body">
      
-      <div class="row">
-      <div class="col s12 m12">
-        <div class="card-panel white">
-         <div class="row">
-          <form:form  modelAttribute="dashboard"  action="dashboard.do" method="post"  class="col s12"> 
-    
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <form:input placeholder="Name of Student" path="StudentName" id="first_name" type="text" class="validate" />
-          <label for="first_name">Name of Student</label>
-        </div>
-         <div class="input-field col s12 m6">
-          <form:input placeholder="Class Name" path="ClassName" id="first_name" type="text" class="validate" />
-          <label for="first_name">Class Name</label>
-        </div>
-        
-        <div class="input-field col s12 m12">
-         <form:textarea id="textarea1" class="materialize-textarea"  path="StudentDescription" placeholder="Description"></form:textarea>
-           <label for="textarea1">Description</label>
-        </div>
-        
-        <button class="btn waves-effect waves-light center" type="submit" name="action">Submit
-   			 <i class="material-icons right">send</i>
- 		 </button>
-        </div>
-    </form:form>
-  </div>
-        </div>
+     <%@ include file="../include/header-log.jsp"%>
+      <div class="container_b">
+      <div class="valign-wrapper row row_form">
+         
       </div>
-    
+      </div>
+       <div class="row_form valign-wrapper">
+          <div class="col s12 m12 recipt-width">
+            <div class="card-panel card-main">
+           
+                <div class="col s12 m12 text-center ">
+            <img src="images/login.png" alt="" class="responsive-img valign profile-image-login size-logo center ">
+            
+          </div>
+          <div class="col m12 s12">
+         	 <h6 class="text-center">MORNING START CHILDREN'S SR. SEC. ACADEMY</h6>
+          </div>
+          <div class="row">
+          <div class="col m6 s6">
+          <p>Admission No. 515151</p>
+          <p>Name :<span>abcsda</span></p>
+          <p>Father's Name :<span>abcsda</span></p>
+          <p>Class :<span>VI</span></p>
+          </div>
+          <div class="col m6 s6">
+          <p class="right-align">Data:12/31/2016</p>
+          <p class="right-align" >Section :<span>A</span></p>
+          </div>
+          <div class="col m12 s12">
+           <table>
+        <thead>
+          <tr>
+              <th>Particulars</th>
+              <th>Amounts</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Tuition Fee</td>
+            <td>1200.00</td>
+            
+          </tr>
+          <tr>
+            <td>Maintenance Fee</td>
+            
+            <td>1000</td>
+          </tr>
+          <tr>
+            <td>Digi. class/Sci/Prac/Comp.</td>
+           
+            <td>15515</td>
+          </tr>
+          <tr>
+            <td>total</td>
+           
+            <td>125</td>
+          </tr>
+          <tr>
+            <td>V>F</td>
+           
+            <td>1515</td>
+            
+          </tr>
+            <tr>
+            <td>Late Fee Rs 40/ per Month  Late Fee</td>
+           
+            <td>40</td>
+            
+          </tr>
+          </tr>
+            <tr>
+            <td>Grand Total</td>
+           
+            <td>4000</td>
+            
+          </tr>
+          </tr>
+            <tr>
+            <td><h6 class="center-align">Checker</h6></td>
+           
+            <td><h6	>Cashier</h6></td>
+            
+          </tr>
+          
+          
+          
+        </tbody>
+      </table>
+          </div>
+          </div>
+          </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script src="js/materialize.min.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
       
       
-</div>
-</div>
- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-      
-
- 
-
-  
-</body>
-
+   </body>
 </html>

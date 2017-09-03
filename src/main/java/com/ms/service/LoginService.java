@@ -22,7 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ms.bean.Login;
 import com.ms.dao.ContentDataDao;
 import com.ms.dao.UserDao;
-import com.ms.entity.ContantData;
+
+
 import com.ms.entity.User;
 import com.ms.util.EncryptionUtil;
 import com.ms.util.MSException;
@@ -40,10 +41,6 @@ public class LoginService {
 	@Autowired
 	private UserDao userDao;
 	
-	@Autowired
-	private ContentDataDao contentDataDao;
-
-
 	/**
 	 * @param login
 	 * @return
@@ -54,23 +51,5 @@ public class LoginService {
 
 	}
 	
-	@Transactional(rollbackFor = Exception.class)
-	public void saveData(ContantData contantData)
-	{
-		//ContentDataDao contentDataDao=new ContentDataDao();
-		contentDataDao.save(contantData);
-	}
 	
-public ContantData getStudentByStudentName(String name)
-{
-	ContantData obj=new ContantData();
-	try {
-		obj = contentDataDao.findByStudentName(name);
-	} catch (MSException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	return obj;
-}
-
 }

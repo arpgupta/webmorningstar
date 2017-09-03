@@ -1,9 +1,19 @@
 package com.ms.bean;
 
-public class Dashboardbean {
+public class ContentDataBean {
 	private String StudentName;
 
 	private String StudentDescription;
+	
+	private String ClassName;
+
+	public String getClassName() {
+		return ClassName;
+	}
+
+	public void setClassName(String className) {
+		ClassName = className;
+	}
 
 	public String getStudentName() {
 		return StudentName;

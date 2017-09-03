@@ -106,10 +106,18 @@ public class MainController {
 	        return new ModelAndView("tc");  
 	    } 
 	 
-	/* @RequestMapping("/login")  
-	    public ModelAndView Adminlogin() {  
+	 @RequestMapping("/abacusreg")  
+	    public ModelAndView abacusreg() {  
 	        
-	        return new ModelAndView("login");  
-	    }*/
+	        return new ModelAndView("abacusreg");  
+	    } 
+	 
+	 @RequestMapping("/feer")  
+	    public ModelAndView feer() {  
+	        
+	        return new ModelAndView("feer");  
+	    } 
+	 
+	
 	
 }

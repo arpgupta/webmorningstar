@@ -5,32 +5,29 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import com.ms.entity.ContantData;
-import com.ms.entity.PaidFeeSummary;
-import com.ms.entity.User;
+import com.ms.entity.ContentData;
+
 import com.ms.util.MSException;
 
-public class ContentDataDao  extends GenericDao<Integer, ContantData>{
+public class ContentDataDao  extends GenericDao<Integer, ContentData>{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public void save(ContantData contantdata) {
+	public void save(ContentData contantdata) {
 		if (contantdata.getId() == null) {
 			persist(contantdata);
 		} else {
 			merge(contantdata);
 		}
-		
-		
 
 	}
 	
 
 	@SuppressWarnings("unchecked")
-	public ContantData findByStudentName(String studentname) throws MSException {
-		Query jpaQuery = getEntityManager().createQuery("Select u from ContantData u where u.studentname = :studentname");
+	public ContentData findByStudentName(String studentname) throws MSException {
+		Query jpaQuery = getEntityManager().createQuery("Select u from ContentData u where u.studentname = :studentname");
 		jpaQuery.setParameter("studentname", studentname);
-		List<ContantData> list = jpaQuery.getResultList();
+		List<ContentData> list = jpaQuery.getResultList();
 		if (list.size() > 0) {
 			return list.get(0);
 		}

@@ -14,8 +14,8 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "dashboard")
-public class ContantData  extends BaseEntity<Integer> implements Serializable{
+@Table(name = "contentdata")
+public class ContentData  extends BaseEntity<Integer> implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +24,9 @@ public class ContantData  extends BaseEntity<Integer> implements Serializable{
 	
 	@Column(name = "studentname")
 	private String studentname;
+	
+	@Column(name = "classname")
+	private String classname;
 
 
 	@Column(name = "studentdescription")
