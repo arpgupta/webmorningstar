@@ -48,6 +48,7 @@ public interface MSConstant {
 	 String MONTHS = "months" ;
 	 String NOTAVAILABLE = "N/A" ;
 	 String DEFAULTIMAGEPATH = "img/u.png" ;
+	 String UPDATESTUDENT="Update Student Appreciation"; 
 
 	 
 }

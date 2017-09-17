@@ -12,6 +12,8 @@
 
 package com.ms.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ms.bean.ContentDataBean;
+import com.ms.entity.ContentData;
+import com.ms.service.ContentDataService;
+import com.ms.util.MSException;
+
 
 
 
@@ -37,11 +44,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope("request")
 public class MainController {
 
-
+	@Autowired
+	private ContentDataService contentDataService;
 	
 	
-	 @RequestMapping("/index")  
-	    public ModelAndView index() {  
+	 
+	 @RequestMapping(value = "/index", method = {RequestMethod.GET })
+	    public ModelAndView index(@ModelAttribute("dashboard") @Validated ContentDataBean contentDataBean, BindingResult bindingResult, Model model,HttpServletRequest request) throws MSException { 
+		 List<ContentData> obj=contentDataService.findStudentData();
+		 
+			contentDataBean.setContentData(obj);
+		 
 	        return new ModelAndView("index");  
 	    }  
 	 
@@ -71,7 +84,7 @@ public class MainController {
 	 @RequestMapping("/gallery")  
 	    public ModelAndView gallery() {  
 	        
-	        return new ModelAndView("about");  
+	        return new ModelAndView("gallery");  
 	    }  
 	 @RequestMapping("/message")  
 	    public ModelAndView message() {  
@@ -122,7 +135,9 @@ public class MainController {
 	    public ModelAndView feer() {  
 	        
 	        return new ModelAndView("feer");  
-	    } 
+	    }
+	 
+	 
 	 
 	
 	

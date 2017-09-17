@@ -5,10 +5,7 @@ display: none;
 nav{
 	display: none !important;
 }
-html, body {
-    width: 210mm;
-    height: 297mm;
-  }
+
 .container_b{
    display: none;
 }
@@ -30,7 +27,7 @@ img.center {
 }
 @page {
     size: A4;
-    margin: 0;
+    margin: 0px !important;
 }
 .size-logo {
     height: 8em !important;
@@ -56,6 +53,11 @@ body {
  
 #one-r{
 	display:block !important;
+}
+.box-print>div>p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px;
 }
 
 }

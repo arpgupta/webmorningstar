@@ -63,8 +63,8 @@
                                     </div>
                                 </div>
                                 <h3>Address</h3>
-                                <p>Swami KrishnanandPuram,
-                                    <br>Karmer Road, Orai - 285001</p>
+                                <p><a href="https://www.google.com/maps?ll=25.98843,79.471707&z=16&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=3769369854309084168" target="_blank">Swami Krishnan And Puram,
+<br>Near van Vibhag Karmer Road, Orai - 285001</a></p>
                             </div>
                             <div class="item col-md-4 col-sm-6 col-xs-12">
                                 <div class="border">
@@ -73,8 +73,11 @@
                                     </div>
                                 </div>
                                 <h3>Phone</h3>
-                                <p>05162 258242
-                                    <br>05162 258242</p>
+                                <p><a href="tel:+919455785026"><span class="fa fa-phone"></span> Principal: +91 9455785026 </a>
+                                
+                        <br>
+                         <a href="tel:+919450905629 "><span class="fa fa-phone"></span> Call:  +91 9450905629  </a>
+                        </p>
                             </div>
                             <div class="item col-md-4 col-sm-6 col-xs-12">
                                 <div class="border">
@@ -83,8 +86,9 @@
                                     </div>
                                 </div>
                                 <h3>Email</h3>
-                                <p>info@morningstar.com
-                                    <br>info@morningstar.com</p>
+                                <p>
+                                <a href="mailto:principalms@mscagroup.com"><span class="fa fa-envelope"></span> principalms@mscagroup.com</a>
+                                    <br><a href="mailto:morningstar@mscagroup.com"><span class="fa fa-envelope"></span> morningstar@mscagroup.com</a></p>
                             </div>
 
                         </div>

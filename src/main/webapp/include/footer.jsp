@@ -69,10 +69,11 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur
                                         <br>adipisicing elit sed do eiusmod. </p>
                                     <ul class="contact-info">
-                                        <li><span class="icon fa fa-home"></span>Swami KrishnanandPuram,<br> Karmer Road, Orai - 285001
+                                        <li><span class="icon fa fa-home"></span>Swami Krishnan And Puram,<br>Near van Vibhag Karmer Road, Orai - 285001
 </li>
                                         <li><span class="icon fa fa-phone"></span>05162 -258242</li>
-                                        <li><span class="icon fa fa-envelope"></span>info@morningstar.com</li>
+                                        <li><span class="icon fa fa-envelope"></span><a href="mailto:principalms@mscagroup.com">principalms@mscagroup.com</a></li>
+                                        <li><span class="icon fa fa-envelope"></span><a href="mailto:principalms@mscagroup.com">morningstar@mscagroup.com</a></li>
                                     </ul>
                                 </div>
 

@@ -5877,3 +5877,7 @@ input,textarea {
 	    width: 46px;
     margin: 45px auto;
 }
+
+.header-top .social-links a>span{
+	line-height:2 !important;
+}

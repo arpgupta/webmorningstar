@@ -1,3 +1,4 @@
+<form:form  modelAttribute="dashboard" method="get">
 <%@ include file = "../include/header.jsp" %>
 
         <section class="rev_slider_wrapper">
@@ -33,12 +34,12 @@
 
                         <div class="tp-caption  tp-resizeme" data-x="center" data-hoffset="0" data-y="top" data-voffset="230" data-transform_idle="o:1;" data-transform_in="x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:[100%];y:0;s:inherit;e:inherit;" data-splitin="none" data-splitout="none" data-start="700">
                              <div class="slide-content-box">
-                                <h1>Morning Star Children'€™s Sr. Sec. Academy</h1>
+                                <h1>Morning Star Children's Sr. Sec. Academy</h1>
                             </div>
                         </div>
                         <div class="tp-caption  tp-resizeme" data-x="center" data-hoffset="0" data-y="top" data-voffset="310" data-transform_idle="o:1;" data-transform_in="x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:[100%];y:0;s:inherit;e:inherit;" data-splitin="none" data-splitout="none" data-start="700">
                             <div class="slide-content-box">
-                                 <p>"Success comes to those who work hard and stays with those, <br>who don'€™t rest on the laurels of the past" </p>
+                                 <p>"Success comes to those who work hard and stays with those, <br>who don't rest on the laurels of the past" </p>
                             </div>
                         </div>
                         <div class="tp-caption tp-resizeme" data-x="center" data-hoffset="0" data-y="top" data-voffset="400" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="700">
@@ -85,7 +86,7 @@
             <div class="container">
                 <div class="sec-title text-center">
                     <h2>Our Services</h2>
-                    <p>The Schoolâ€™s mission is to provide a learning environment that encourages children to bring out the best in themselves and enables their all-round development through the joy of learning, enduring values and the celebration of diversity.</p>
+                    <p>The School's mission is to provide a learning environment that encourages children to bring out the best in themselves and enables their all-round development through the joy of learning, enduring values and the celebration of diversity.</p>
                 </div>
                 <div class="inner-box">
                     <div class="item-list">
@@ -146,14 +147,14 @@
                                 </div>
                                 <h3><a href="#">Student Life</a></h3>
                             </div>
-                            <div class="item col-md-3 col-sm-6 col-xs-12">
+                           <!--  <div class="item col-md-3 col-sm-6 col-xs-12">
                                 <div class="border">
                                     <div class="icon-box">
                                         <img src="images/icons/1.png" alt="Student Life">
                                     </div>
                                 </div>
                                 <h3><a href="#">Fees</a></h3>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -173,7 +174,7 @@
                                         <h2>Welcome to Morning Star</h2>
                                     </div>
                                     <div class="text">
-                                        <p>At Morning Star, we recognise the imperative of imparting an educational experience that is world â€“ class in every respect and which prepares children for global citizenship. We are a school with an Indian mind, an Indian heart and an Indian soul; a school that celebrates the culture of excellence with a global dimension is central to the education of children to face the challengers of the 21st century with confidence and strength of character.</p>
+                                        <p>At Morning Star, we recognise the imperative of imparting an educational experience that is world a class in every respect and which prepares children for global citizenship. We are a school with an Indian mind, an Indian heart and an Indian soul; a school that celebrates the culture of excellence with a global dimension is central to the education of children to face the challengers of the 21st century with confidence and strength of character.</p>
                                     </div>
                                     <ul class="list">
                                         <li>Celebrates a culture of excellence in academics and the all-round development of children</li>
@@ -803,6 +804,15 @@ English, its composition...
             </div>
         </section> -->
          <!--latest-news end-->
+         <c:forEach items="${dashboard.contentData}" var="festival">
+          
+        ${festival.studentname}
+        ${festival.classname}
+        ${festival.studentdescription} 
+        
+    
+</c:forEach>
+         
          <section class="our-courses">
             <div class="container">
                 <div class="sec-title text-center">
@@ -874,4 +884,7 @@ English, its composition...
             </div>
         </section>
 
+
+
        <%@ include file = "../include/footer.jsp" %>
+       </form:form>

@@ -30,9 +30,11 @@
                 <!--Top Left-->
                 <div class="top-left pull-left">
                     <ul class="links-nav clearfix">
-                        <li><a href="#"><span class="fa fa-phone"></span> Call:  05162 258242 </a>
+                        <li><a href="tel:+919455785026"><span class="fa fa-phone"></span> Principal: +91 9455785026 </a>
                         </li>
-                        <li><a href="#"><span class="fa fa-envelope"></span>Email:  info@morningstar.com</a>
+                         <li><a href="tel:+919450905629 "><span class="fa fa-phone"></span> Call:  +91 9450905629  </a>
+                        </li>
+                        <li><a href="mailto:morningstar@mscagroup.com"><span class="fa fa-envelope"></span>Email:  morningstar@mscagroup.com</a>
                         </li>
                     </ul>
                 </div>

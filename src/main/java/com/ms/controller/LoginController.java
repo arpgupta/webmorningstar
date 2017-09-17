@@ -8,6 +8,11 @@
 *******************************************************************************/
 package com.ms.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +32,7 @@ import com.ms.bean.Login;
 import com.ms.dto.UserDTO;
 import com.ms.entity.PaidFeeSummary;
 import com.ms.entity.User;
+import com.ms.enums.Content;
 import com.ms.service.ContentDataService;
 import com.ms.service.LoginService;
 import com.ms.util.MSConstant;
@@ -43,6 +49,8 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
+	@Autowired
+	private ContentDataService contentDataService;
 
 	
 	
@@ -73,32 +81,65 @@ public class LoginController {
 	   }
 
 	@RequestMapping(value = "/dashboard", method = { RequestMethod.POST, RequestMethod.GET })
-	public ModelAndView dashboardPage(@ModelAttribute("dashboard") @Validated ContentDataBean contentDataBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
+	public ModelAndView dashboardPage(@ModelAttribute("dashboard") @Validated ContentDataBean contentDataBean, BindingResult bindingResult, Model model,HttpServletRequest request) throws MSException {
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
-			SessionUtil.setPage(MSConstant.DASHBOARD);	
+			SessionUtil.setPage(MSConstant.UPDATESTUDENT);	
+			
+			
+			
+			List<ContentData> obj=contentDataService.findStudentData();
+			
+			contentDataBean.setContentData(obj);
+				
 			return new ModelAndView("dashboard");
 		}else{
-			SessionUtil.setPage(MSConstant.DASHBOARD);	
+			SessionUtil.setPage(MSConstant.UPDATESTUDENT);	
 			
 			String a=contentDataBean.getStudentName();
 			String b=contentDataBean.getStudentDescription();
 			String c=contentDataBean.getClassName(); 
+			int t=contentDataBean.getTempeditId();
+			int d=contentDataBean.getTempdeleteId();
+			int i=contentDataBean.getId();
 			System.out.println(a);
 			System.out.println(b);
-			System.out.println(c);
+			System.out.println(t);
 			
 			ContentData contentData=new ContentData();
 			
 			contentData.setStudentname(a);
 			contentData.setStudentdescription(b);
 			contentData.setClassname(c);
-			ContentDataService contentDataService =new  ContentDataService();
+			contentData.setId(i);
 			
-			contentDataService.saveData(contentData);
+			List<ContentData> obj=contentDataService.findStudentData();
 			
-			/*ContentData obj=contentDataService.getStudentByStudentName(a);*/
+			contentData.setId(i);
+			if(t==0&&d==0)
+			{
+				contentDataService.saveData(contentData);
+			}
 			
 			
+			contentDataBean.setContentData(obj);
+			
+			
+			if(t!=0)
+			{
+				ContentData  contentData1 = contentDataService.getStudentById(contentDataBean.getTempeditId());
+				contentDataBean.setClassName(contentData1.getClassname());
+				contentDataBean.setStudentName(contentData1.getStudentname());
+				contentDataBean.setStudentDescription(contentData1.getStudentdescription());
+				
+			}
+			if(d!=0)
+			{
+				 contentDataService.deletStudentById(contentDataBean.getTempdeleteId());
+				
+				
+			}
+			/*contentDataBean.setTempdeleteId(contentDataBean.getTempdeleteId());*/
+			 
 			return new ModelAndView("dashboard");
 		}
 	}

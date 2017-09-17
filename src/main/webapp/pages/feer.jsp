@@ -25,8 +25,10 @@
       </div>
       </div>
        <div class="row_form valign-wrapper">
+       
           <div class="col s12 m12 recipt-width">
             <div class="card-panel card-main">
+           <div><!-- <p id="bg-text">adsad</p> -->
            <div class="row">
                 <div class="col s3 m3">
             <img src="images/login.png" alt="" class="responsive-img valign profile-image-login size-logo center ">
@@ -117,9 +119,13 @@
       </div>
       
           </div>
-         
+         </div>
           <div id="one-r">
         <div style="    border-bottom: 1px dashed;    margin: 10px 0px 20px;"></div>
+        <div class="col m9 s9 tex-morning">
+         	 <h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR. SEC. ACADEMY</h4>
+          </div>
+        
           <div class="row box-print">
           <div class="col m6 s6 ">
           <p>Admission No. <span>515151</span></p>

@@ -13,6 +13,8 @@
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+ <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
   <link rel="shortcut icon" type="image/png" href="images/login.png"/>
    <style>
  html,
@@ -478,6 +480,7 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
     color: rgb(0, 0, 0) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.26);
 }
+.dataTables_filter, .dataTables_info { display: none; }
 .date{ display: inline;}
     margin-top: 34px;}
  
@@ -491,19 +494,14 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
       
     </div>
   
-     
-      <div class="row">
-      <div class="col s12 m12">
-        <div class="card-panel white">
-         <div class="row">
-          <form:form  modelAttribute="dashboard"  action="dashboard.do" method="post"  class="col s12"> 
-    
-      <div class="row">
-        <div class="input-field col s12 m6">
+     <form:form  modelAttribute="dashboard"  action="dashboard.do" method="post" name="form1" class="col s12">
+      <div class="row card-panel white">
+      <div class="col s12 m4">
+        <div class="input-field col s12 m12">
           <form:input placeholder="Name of Student" path="StudentName" id="first_name" type="text" class="validate" />
           <label for="first_name">Name of Student</label>
         </div>
-         <div class="input-field col s12 m6">
+         <div class="input-field col s12 m12">
           <form:input placeholder="Class Name" path="ClassName" id="first_name" type="text" class="validate" />
           <label for="first_name">Class Name</label>
         </div>
@@ -513,22 +511,94 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
            <label for="textarea1">Description</label>
         </div>
         
-        <button class="btn waves-effect waves-light center" type="submit" name="action">Submit
+        <button class="btn waves-effect waves-light center" type="button" name="action" onclick="formsubmit()">Submit
    			 <i class="material-icons right">send</i>
  		 </button>
-        </div>
-    </form:form>
+ 		 </div>
+ 		
+ 		 <div class="col s12 m8">
+ 		 <form:input type="hidden" path="tempeditId" />
+     <form:input type="hidden" path="tempdeleteId" />
+ 		 <table class="bordered" id="example">
+    <thead>
+      <tr>
+        <th width="20%">Student Name</th>
+        <th width="20%">Class Name</th>
+        <th width="40%">Student Description</th>
+        <th width="10%"></th>
+        <th width="10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <c:forEach items="${dashboard.contentData}" var="festival">
+    <tr>      
+        <td>${festival.studentname}</td>
+        <td>${festival.classname}</td>
+        <td>${festival.studentdescription} </td>
+        
+        <td><button class="btn waves-effect waves-light center" type="button" name="Edit" onclick="editstudent(${festival.id})">Edit
+   			 <i class="material-icons right">send</i>
+ 		 </button></td>
+          <td><button class="btn waves-effect waves-light center" type="button" name="Delete" onclick="deletestudent(${festival.id})">Delete
+   			 <i class="material-icons right">send</i>
+ 		 </button></td>
+    </tr>
+</c:forEach>
+      
+    </tbody>
+  </table>
   </div>
+ 		 </div>
+ 		 
+ 		 </form:form>
+ 		 
         </div>
-      </div>
     
-      
-      
-</div>
-</div>
- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  
+ <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
       
+     
+
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+      <script type="text/javascript">
+      
+      $(document).ready(function() {
+  	    $('#example').DataTable( {
+  	    	"scrollY":        "200px",
+  	        "scrollCollapse": false,
+  	        "info":           true,
+  	        "paging":         true,
+  	        "searching": false,
+  	        "bFilter": false,
+  	        "bInfo": false
+  	        
+  	    } );
+  	} );
+      function editstudent(id){
+    	  
+    	  $("#tempeditId").val(id);
+    	  $("#tempdeleteId").val(0);
+    	  
+    	  form1.submit();
+      }
+      function deletestudent(id){
+    	  
+    	  $("#tempdeleteId").val(id);
+    	  
+    	  $("#tempeditId").val(0);
+    	  form1.submit();
+      }
+      function formsubmit(){
+    	  
+    	  $("#tempeditId").val(0);
+    	  $("#tempdeleteId").val(0);
+    	  form1.submit();
+      }
+      
+      
+      </script>
 
  
 

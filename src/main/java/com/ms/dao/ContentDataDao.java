@@ -31,17 +31,34 @@ public class ContentDataDao  extends GenericDao<Integer, ContentData>{
 		}
 
 	}
-	
+	@SuppressWarnings("unchecked")
+	public ContentData deleteStudentById(int id) throws MSException {
+		Query jpaQuery = getEntityManager().createQuery("DELETE u from ContentData u where u.id in("+id+")");
+				
+		/*List<ContentData> list = jpaQuery.getResultList();
+		if (list.size() > 0) {
+			return list.get(0);
+		}*/
+		return null;
+	}
 
 	@SuppressWarnings("unchecked")
-	public ContentData findByStudentName(String studentname) throws MSException {
-		Query jpaQuery = getEntityManager().createQuery("Select u from ContentData u where u.studentname = :studentname");
-		jpaQuery.setParameter("studentname", studentname);
+	public ContentData findById(int id) throws MSException {
+		Query jpaQuery = getEntityManager().createQuery("Select u from ContentData u where u.id in("+id+")");
+				
 		List<ContentData> list = jpaQuery.getResultList();
 		if (list.size() > 0) {
 			return list.get(0);
 		}
 		return null;
+	}
+	@SuppressWarnings("unchecked")
+	public List<ContentData> findStudentData() throws MSException {
+		Query jpaQuery = getEntityManager().createQuery("Select u from ContentData u order by u DESC");
+		
+		List<ContentData> list = jpaQuery.getResultList();
+		
+		return list;
 	}
 	
 

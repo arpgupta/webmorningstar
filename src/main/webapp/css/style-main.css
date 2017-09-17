@@ -498,3 +498,12 @@ font-size: 12px;
  #one-r{
 	display:none;
 }
+
+/* #bg-text
+{
+    color:lightgrey;
+    font-size:120px;
+    transform:rotate(300deg);
+    -webkit-transform:rotate(300deg);
+    position: absolute; */
+}
